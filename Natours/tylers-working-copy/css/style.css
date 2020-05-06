@@ -32,5 +32,48 @@ body {
     url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
+  position: relative;
+
   clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
+}
+
+.logo-box {
+  position: absolute;
+  /* top and left are from the top-left of parent with relative positioning */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+  /* width scales accordingly */
+}
+
+.text-box {
+  position: absolute;
+  /* Moves in relation to the parent element */
+  top: 40%;
+  left: 50%;
+  /* Translates based on % of object */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
