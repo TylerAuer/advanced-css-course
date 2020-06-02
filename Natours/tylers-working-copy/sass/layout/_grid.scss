@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
 
   // selects every elem that is NOT the last child
@@ -17,7 +16,6 @@
   // '*' contains ...
   // '$' ends with ...
   [class^='col-'] {
-    background-color: yellowgreen;
     float: left;
 
     &:not(:last-child) {
