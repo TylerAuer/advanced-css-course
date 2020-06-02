@@ -4,6 +4,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 *,
 *::before,
@@ -25,9 +26,8 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   line-height: 1.7;
   color: $color-grey-dark;
   padding: 3rem;
@@ -42,34 +42,32 @@ body {
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url("../img/hero.jpg");
+    url('../img/hero.jpg');
   background-size: cover;
   background-position: top;
   position: relative;
 
   clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
-}
 
-.header__logo-box {
-  position: absolute;
-  /* top and left are from the top-left of parent with relative positioning */
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem;
-  /* width scales accordingly */
-}
+  &__logo {
+    height: 3.5rem;
+  }
 
-.header__text-box {
-  position: absolute;
-  /* Moves in relation to the parent element */
-  top: 40%;
-  left: 50%;
-  /* Translates based on % of object */
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    /* Moves in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* Translates based on % of object */
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
@@ -78,23 +76,23 @@ body {
   text-align: center;
   backface-visibility: hidden;
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
 
-  animation: moveInLeft 0.5s ease-out;
-}
+    animation: moveInLeft 0.5s ease-out;
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 0.5s ease-out;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 0.5s ease-out;
+  }
 }
 
 @keyframes moveInLeft {
@@ -141,61 +139,63 @@ body {
   }
 }
 
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  position: relative;
-  font-size: 1.6rem;
-}
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
 
-/* on mouseOver */
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  /* on mouseOver */
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-/* when clicked */
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  /* when clicked */
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  /* Height and width % based on parent (.btn */
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-.btn--white::after {
-  background: $color-white;
-}
+    &::after {
+      background: $color-white;
+    }
+  }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+  &::after {
+    content: '';
+    display: inline-block;
+    /* Height and width % based on parent .btn */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-.btn--animated {
-  /* animation: animName, duration, tweak, delay */
-  animation: moveInBottom 0.5s ease-out 0.4s;
-  /* applies the properties of 0% of animation before anim begins */
-  animation-fill-mode: backwards;
+  &--animated {
+    /* animation: animName, duration, tweak, delay */
+    animation: moveInBottom 0.5s ease-out 0.4s;
+    /* applies the properties of 0% of animation before anim begins */
+    animation-fill-mode: backwards;
+  }
 }
