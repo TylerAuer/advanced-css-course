@@ -14,11 +14,16 @@
     ),
     url('../../img/nat-4.jpg');
   background-size: cover;
-
   transform: skewY(-7deg) translateY(-10rem);
 
   // Selects the "direct children" that are anything ("*")
   & > * {
     transform: skewY(7deg);
   }
+}
+
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -21rem;
 }
