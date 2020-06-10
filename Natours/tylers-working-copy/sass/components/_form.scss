@@ -4,10 +4,8 @@
   }
 
   &__input {
-    // gets font family from parent. Necessary because forms are a rare
-    // element that doesn't inherit font family by default
-    font-family: inherit;
     font-size: 1.5rem;
+    font-family: inherit;
     color: inherit;
     padding: 1.5rem 2rem;
     border-radius: 2px;
@@ -16,21 +14,24 @@
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
-    transition: all 0.3;
+    transition: all 0.3s;
 
-    &::-webkit-input-placeholder {
-      color: $color-grey-dark-2;
+    @include respond(tab-port) {
+      width: 100%;
     }
 
     &:focus {
       outline: none;
-      // should always have an outline for screen readers
       box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
       border-bottom: 3px solid $color-primary;
+    }
 
-      &:invalid {
-        border-bottom: 3px solid $color-secondary-dark;
-      }
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
     }
   }
 
@@ -40,21 +41,23 @@
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block;
-    transition: all 0.2s;
+    transition: all 0.3s;
   }
 
-  // + selects adjacent siblings (no elements between and at the same level)
-  // Order must match the order in the HTML
   &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-2rem);
+    transform: translateY(-4rem);
   }
 
-  // all this logic also works for checkboxes
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {
@@ -65,7 +68,7 @@
     font-size: $default-font-size;
     cursor: pointer;
     position: relative;
-    padding-left: 4rem;
+    padding-left: 4.5rem;
   }
 
   &__radio-button {
@@ -94,7 +97,6 @@
     }
   }
 
-  // Get .form__radio-input when checked get sibling .form__radio-label's child .form__radio-button's after
   &__radio-input:checked ~ &__radio-label &__radio-button::after {
     opacity: 1;
   }

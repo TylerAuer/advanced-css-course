@@ -5,9 +5,18 @@
   // selects every elem that is NOT the last child
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
 
-  // Imports the mixing and inserts code right here
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
+  }
+
+  // Imports the mixin and inserts code right here
   @include clearfix;
 
   // Attribute selector using a sort of regex
@@ -20,6 +29,15 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+      margin-bottom: $gutter-vertical-small;
     }
   }
 
